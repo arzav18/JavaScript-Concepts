@@ -1,113 +1,40 @@
-//calculate sum of 1 to 5
+//Update an array:
 
 let sum = 0;
-for(let i = 1; i<=6; i++){
-    sum = sum + i;
+let arr = [1,2,3,4,5];
+for(let i=0; i<arr.length; i++){
+    let offer = arr[i]/10;
+    arr[i] -= offer;
 }
-console.log(sum);
+console.log(arr);
 
 
-//<----------------------------------------------------------------------->//
+////<---------------------------------------------------------------------->
 
 
-//Print 1 to 5
+/*Array methods:
+1) arr.push(): pushes the element to the end of an array
+2) arr.pop(): deletes from end and return
+3) arr.toString(): converts array to string
+4) arr.concat(): joins multiple arrays and return a new one: let newArr = arr1.concat(arr2);
+5) arr.unshift(): adds an element to the starting of an array
+6) arr.shift(): deletes an element from the start and return
+7) arr.slice(): returns a slice of an array: arr.slice(startIndex, endIndex)
+8) arr.splice(): changes original array (add, remove, replace): arr.splice(startIndex, delCount, newElements);
+*/
 
-for(let i = 1; i<=5; i++){
-    console.log(i);
-}
+//Ques
 
+let arr = ['b', 'm', 'u', 'g', 'i', 'n'];
 
-//<----------------------------------------------------------------------->//
+//remove first element from array:
+arr.shift();
+console.log(arr);
 
+//remove u and add o:
+arr.splice(1, 1, 'o' );
+console.log(arr);
 
-//Print 1 to 5 using while loop
-
-let i = 1;
-while(i<=5){
-    console.log(i);
-    i++;
-}
-
-
-//<----------------------------------------------------------------------->//
-
-
-//Print 1 to 5 using do-while loop
-
-let i = 1;
-do{
-    console.log(i);
-    i++;
-} while(i<=6);
-
-
-//<----------------------------------------------------------------------->//
-
-
-//for-of loop : used to iterate over strings and array elements
-
-let str = "javascript";
-for(let i of str){
-    console.log(i);
-}
-
-
-//<----------------------------------------------------------------------->//
-
-
-//for-in loop: used to return the keys of an object
-
-let student = {
-    firstName: "javascriptop",
-    age: 20,
-    cgpa: 10,
-    isPass: false,
-}
-
-for(let i in student){
-    console.log(i, student[i]);
-}
-
-
-//<----------------------------------------------------------------------->//
-
-
-// print all the numbers from 0-100:
-
-for(let i = 1; i<=100; i++){
-    console.log(i);
-}
-
-
-//<----------------------------------------------------------------------->//
-
-
-//Print all the even numbers from 0-100:
-
-for(let i=1; i<=100; i++){
-    if(i%2==0){
-        console.log(i);
-    }
-}
-
-
-//<----------------------------------------------------------------------->//
-
-
-//Ask the user to guess the correct number
-
-let gameNum = 25;
-let userNum = prompt("Enter your number:");
-while(userNum!=gameNum){
-    userNum = prompt("wrong number");
-}
-console.log("correct number");
-
-
-//<----------------------------------------------------------------------->//
-
-
-//generate a username
-
-let str = prompt("Enter your full name");
-console.log("@"+str+str.length);
+//add a at the end:
+arr.push('a');
+console.log(arr);

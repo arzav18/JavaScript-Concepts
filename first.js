@@ -1,40 +1,104 @@
-//Update an array:
+/* Functions: */
 
-let sum = 0;
-let arr = [1,2,3,4,5];
-for(let i=0; i<arr.length; i++){
-    let offer = arr[i]/10;
-    arr[i] -= offer;
+//function to add 2 numbers:
+function addNum(num1, num2){
+    console.log(num1+num2);
 }
-console.log(arr);
+
+addNum(1,2);
 
 
-////<---------------------------------------------------------------------->
+//Arrow function:
+
+const addNum = (num1, num2) => {
+    console.log(num1+num2);
+}
+addNum(1,2);
 
 
-/*Array methods:
-1) arr.push(): pushes the element to the end of an array
-2) arr.pop(): deletes from end and return
-3) arr.toString(): converts array to string
-4) arr.concat(): joins multiple arrays and return a new one: let newArr = arr1.concat(arr2);
-5) arr.unshift(): adds an element to the starting of an array
-6) arr.shift(): deletes an element from the start and return
-7) arr.slice(): returns a slice of an array: arr.slice(startIndex, endIndex)
-8) arr.splice(): changes original array (add, remove, replace): arr.splice(startIndex, delCount, newElements);
-*/
+//Count the number of vowels in a string
+function countVowel(str){
+    let count = 0;
+    for(const char of str){
+        if(char=='a' || char=='e' || char=='i' || char=='o' || char=='u'){
+            count++;
+        }
+    }
+    return count;
+}
 
-//Ques
 
-let arr = ['b', 'm', 'u', 'g', 'i', 'n'];
+//Count vowel using arrow functions
 
-//remove first element from array:
-arr.shift();
-console.log(arr);
+const countVowel = (str) => {
+    let count = 0;
+    for(const char of str){
+        if(char=='a' || char=='e' || char=='i' || char=='o' || char=='u'){
+            count++;
+    }}
+    return count;
+}
 
-//remove u and add o:
-arr.splice(1, 1, 'o' );
-console.log(arr);
 
-//add a at the end:
-arr.push('a');
-console.log(arr);
+//ForEach loop in functions
+
+let arr = [1,2,3,4,5];
+arr.forEach((val)=>{
+    console.log(val);
+})
+
+
+
+/* A callback is a function passed as an argument to another function: arr.forEach(callBackFunction) */
+
+
+// Print the square of each element in an array using forEach loop
+let arr = [1,2,3,4,5];
+
+arr.forEach((val) => {
+    console.log(val*val);
+})
+
+
+/* Maps: creates a new array with the results of some operations: arr.map(callBackFunc(val, idx, arr)) */
+
+let arr = [1,2,3,4,5];
+
+let newArr = arr.map((val) => {
+    return val*2;
+})
+console.log(newArr);
+
+
+
+/* Filter: creates a new array of elements that give true for a condition/filter */
+
+//even numbers
+let arr = [1,2,3,4,5];
+
+let newArr = arr.filter((val) => {
+    return val%2==0;
+})
+
+console.log(newArr);
+
+
+
+/* Reduce: performs some operations, reduces the array to a single value. It returns that single value */
+
+//Return the largest element
+let arr = [1,2,3,4,5];
+
+let output = arr.reduce((prev, curr) => {
+    return prev>curr? prev:curr;
+})
+console.log(output);
+
+
+//Filter out the marks>=90
+let arr = [10,50,90,100,98];
+let newArr = arr.filter((val) => {
+    return val>=90;
+})
+
+console.log(newArr);

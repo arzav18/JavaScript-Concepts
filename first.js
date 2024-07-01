@@ -1,67 +1,33 @@
-let userScore = 0;
-let compScore = 0;
+/* What are objects in JS?
+An object is an entity having a state and behavior (properties and methods) */
 
-const choices = document.querySelectorAll(".choice");
+const student = {                               /* student is an object, (name,age,marks) are properties */
+    studentName: "Arzav Jain",
+    age: "23",
+    marks: "95",
+    printMarks: function () {
+        console.log("marks are: ", this.marks);
+    },
+};
 
-const msg = document.querySelector("#msg");
 
-const userScorePara = document.querySelector("#user-score");
-const compScorePara = document.querySelector("#comp-score");
+/* JS objects have a special property called Prototypes. Prototypes themselves are an object. They have their
+own set of properties and methods */
 
-const genCompChoice = () => {
-    const options = ["rock", "paper", "scissors"];
-    const randIdx = Math.floor(Math.random() *3);
-    return options[randIdx];
-}
+/* We can set prototype using the following syntax: objectName.__proto__ */
 
-const showWinner = (userWin, userChoice, compChoice) => {
-    if(userWin){
-        userScore++;
-        userScorePara.innerText = userScore;
-        console.log("You win!");
-        msg.innerText = `You Win!, ${userChoice} beats ${compChoice}`;
-        msg.style.backgroundColor = "green";
-    }
-    else{
-        compScore++;
-        compScorePara.innerText = compScore;
-        console.log("You lose!");
-        msg.innerText = `You Lose!, ${compChoice} beats ${userChoice}`;
-        msg.style.backgroundColor = "red";
-    }
-}
+const employee = {
+    calcTax () {
+        console.log("tax rate is 10%");
+    },
+};
 
-const drawGame = () => {
-    console.log("game was draw");
-    msg.innerText = "Game was draw!";
-    msg.style.backgroundColor = "#081b31";
-}
+const karanArjun = {
+    salary: "50000",
+};
 
-const playGame = (userChoice) => {
-    console.log("userChoice is = ", userChoice);
-    const compChoice = genCompChoice();
-    console.log("compChoice is = ", compChoice);
-    if(userChoice==compChoice){
-        drawGame();
-    }
-    else{
-        let userWin = true;
-        if(userChoice==="rock"){
-            userWin = compChoice === "paper" ? false : true;
-        }
-        else if(userWin==="paper"){
-            userWin = compChoice === "scissors" ? false : true;
-        }
-        else{
-            userWin = compChoice === "rock" ? false : true;
-        }
-        showWinner(userWin, userChoice, compChoice);
-    }
-}
+karanArjun.__proto__ = employee;
+/* using the function of object `employee` by setting it as a prototype of object `karanArjun` */
 
-choices.forEach((choice) => {
-    choice.addEventListener("click", () => {
-        const userChoice = choice.getAttribute("id");
-        playGame(userChoice);
-    });
-});
+/* The type of a protoype is a reference to an object
+If an object and a prototype have same method, then object's method will be used */

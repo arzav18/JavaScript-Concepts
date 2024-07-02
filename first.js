@@ -1,33 +1,21 @@
-/* What are objects in JS?
-An object is an entity having a state and behavior (properties and methods) */
+/* Class is a program code for template for creating objects
+These objects have some state and some behavior inside it. */
 
-const student = {                               /* student is an object, (name,age,marks) are properties */
-    studentName: "Arzav Jain",
-    age: "23",
-    marks: "95",
-    printMarks: function () {
-        console.log("marks are: ", this.marks);
-    },
-};
+class ToyotaCar {
+    start () {
+        console.log("start");
+    }
 
+    stop () {
+        console.log("stop");
+    }
 
-/* JS objects have a special property called Prototypes. Prototypes themselves are an object. They have their
-own set of properties and methods */
+    setBrand(brand) {
+        this.brandName = brand;
+    }
+}
 
-/* We can set prototype using the following syntax: objectName.__proto__ */
-
-const employee = {
-    calcTax () {
-        console.log("tax rate is 10%");
-    },
-};
-
-const karanArjun = {
-    salary: "50000",
-};
-
-karanArjun.__proto__ = employee;
-/* using the function of object `employee` by setting it as a prototype of object `karanArjun` */
-
-/* The type of a protoype is a reference to an object
-If an object and a prototype have same method, then object's method will be used */
+let fortuner = new ToyotaCar();
+fortuner.setBrand("fortuner");
+let lexus = new ToyotaCar();
+lexus.setBrand("lexus");
